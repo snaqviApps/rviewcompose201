@@ -3,10 +3,8 @@ package learn.ghar.rviewcompose201
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -19,12 +17,13 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            ScrollableColumn()
+            LazyColumnDemo()
         }
     }
 }
 
 
+/**
 @Composable
 fun ScrollableColumn(){
     val scrolState = rememberScrollState()
@@ -41,5 +40,19 @@ fun ScrollableColumn(){
             Divider(color = Color.Black, thickness = 3.dp)
         }
     }
-    
+}
+ */
+@Composable
+private fun LazyColumnDemo() {
+    LazyColumn {
+        items(40){ count ->
+            Text(
+                text = "User name: ".plus(count),
+                style = MaterialTheme.typography.headlineSmall,
+                modifier = Modifier
+                    .padding(3.dp)
+            )
+            Divider(color = Color.Blue, thickness = 2.dp)
+        }
+    }
 }
