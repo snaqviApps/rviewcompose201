@@ -15,3 +15,18 @@ a string. So the input data type should be string.
 If we are selecting a User object, then the input data type of the lambda expression would be User.
 
 ----------------------------
+commit: better recycling approach:
+
+We could write all the codes to display our data in a single disposable. That’s what we have being doing
+
+during this tutorial for our previous LazyColumn
+
+and Scrollable Column examples.
+
+But if we do so, Since this layout has a lot of components It would be a very difficult to read,
+
+Difficult to maintain
+
+code.
+
+Therefore following the best practices we write this code as 3 separate composables.
